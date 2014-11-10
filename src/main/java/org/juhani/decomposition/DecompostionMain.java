@@ -52,7 +52,7 @@ public class DecompostionMain {
             decomp.put(2,combi);
             return decomp;
 			
-		}else if(n==2){
+		}else if(n==3){
 			ArrayList array = new ArrayList();
 			array.add(3);
 			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
