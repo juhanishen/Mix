@@ -20,10 +20,26 @@
 
 package org.juhani.decomposition;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 public class DecompostionMain {
+	
+	private LinkedHashMap<Integer,HashMap<Integer,ArrayList<Integer>>> decomp = new LinkedHashMap<>();
 	
 	public static void main(){
 		
 	}
-
+	
+	private int[] solution(int n){
+		return null;
+	}
+	
+	private LinkedHashMap<Integer,HashMap<Integer,ArrayList<Integer>>> decompSolution (int n){
+		
+		return null;
+	}
+	
+	
 }
