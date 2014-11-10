@@ -26,7 +26,7 @@ import java.util.LinkedHashMap;
 
 public class DecompostionMain {
 	
-	private LinkedHashMap<Integer,HashMap<Integer,ArrayList<Integer>>> decomp = new LinkedHashMap<>();
+	private LinkedHashMap<Integer,LinkedHashMap<Integer,ArrayList<Integer>>> decomp = new LinkedHashMap<>();
 	
 	public static void main(){
 		
@@ -36,8 +36,34 @@ public class DecompostionMain {
 		return null;
 	}
 	
-	private LinkedHashMap<Integer,HashMap<Integer,ArrayList<Integer>>> decompSolution (int n){
-		
+	private LinkedHashMap<Integer,LinkedHashMap<Integer,ArrayList<Integer>>> decompSolution (int n){
+		if(n==1){
+			ArrayList array = new ArrayList();
+			array.add(1);
+			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
+            combi.put(1,array);
+            decomp.put(1,combi);
+            return decomp;
+		}else if(n==2){
+			ArrayList array = new ArrayList();
+			array.add(2);
+			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
+            combi.put(1,array);
+            decomp.put(2,combi);
+            return decomp;
+			
+		}else if(n==2){
+			ArrayList array = new ArrayList();
+			array.add(3);
+			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
+            combi.put(1,array);
+            ArrayList array2 = new ArrayList();
+			array2.add(1);
+			array2.add(2);
+            combi.put(2,array2);			
+            decomp.put(3,combi);
+            return decomp;		
+		}
 		return null;
 	}
 	
