@@ -21,7 +21,6 @@
 package org.juhani.decomposition;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -30,24 +29,45 @@ public class DecompostionMain {
 	
 	private LinkedHashMap<Integer,LinkedHashMap<Integer,ArrayList<Integer>>> decomp = new LinkedHashMap<>();
 	
-	public static void main(){
-		
+	public static void main(String[] args){
+		new DecompostionMain().solution(5);
 	}
 	
 	private int[] solution(int n){
+		LinkedHashMap<Integer,LinkedHashMap<Integer,ArrayList<Integer>>> sol = decompSolution (n);
+		dump(sol);
 		return null;
 	}
 	
+	private void dump(
+		LinkedHashMap<Integer, LinkedHashMap<Integer, ArrayList<Integer>>> sol) {
+		Set<Map.Entry<Integer, LinkedHashMap<Integer, ArrayList<Integer>>>> solSet = sol.entrySet();
+		for(Map.Entry<Integer, LinkedHashMap<Integer, ArrayList<Integer>>> entry: solSet){
+			int key=entry.getKey();
+			System.out.println("xxxxKey is:"+key);
+			Set<Map.Entry<Integer,ArrayList<Integer>>> combi = entry.getValue().entrySet();
+			for(Map.Entry<Integer, ArrayList<Integer>> combin_entry:combi){
+			   int combi_key = combin_entry.getKey();
+			   System.out.print("----------combination "+combi_key+":");
+			   for(Integer j : combin_entry.getValue()){
+				   System.out.print(" "+j+", ");				   
+			   }
+			   System.out.println("");
+			} 
+		}
+		
+	}
+
 	private LinkedHashMap<Integer,LinkedHashMap<Integer,ArrayList<Integer>>> decompSolution (int n){
 		if(n==1){
-			ArrayList array = new ArrayList();
+			ArrayList<Integer> array = new ArrayList<>();
 			array.add(1);
 			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
             combi.put(1,array);
             decomp.put(1,combi);
             return decomp;
 		}else if(n==2){
-			ArrayList array = new ArrayList();
+			ArrayList<Integer> array = new ArrayList<>();
 			array.add(2);
 			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
             combi.put(1,array);
@@ -55,11 +75,11 @@ public class DecompostionMain {
             return decomp;
 			
 		}else if(n==3){
-			ArrayList array = new ArrayList();
+			ArrayList<Integer> array = new ArrayList<>();
 			array.add(3);
 			LinkedHashMap<Integer,ArrayList<Integer>> combi = new LinkedHashMap<>();
             combi.put(1,array);
-            ArrayList array2 = new ArrayList();
+            ArrayList<Integer> array2 = new ArrayList<>();
 			array2.add(1);
 			array2.add(2);
             combi.put(2,array2);			
