@@ -23,6 +23,8 @@ package org.juhani.decomposition;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 public class DecompostionMain {
 	
@@ -64,7 +66,23 @@ public class DecompostionMain {
             decomp.put(3,combi);
             return decomp;		
 		}
-		return null;
+	
+		LinkedHashMap<Integer,ArrayList<Integer>> combin=null;
+		int setSize=0;
+	    for(int i= (n/2+1);i<n;i++){
+	    	combin = decompSolution(i).get(i);
+	    	Set<Map.Entry<Integer, ArrayList<Integer>>> mapSet = combin.entrySet();
+            for(Map.Entry<Integer, ArrayList<Integer>> entry:mapSet ){
+            	entry.getValue().add(n-i);
+            	setSize ++;
+            }    
+	    }
+		
+	    ArrayList<Integer> array = new ArrayList<Integer>();
+	    array.add(n);
+	    combin.put(setSize++,array);
+	    decomp.put(n, combin);
+		return decomp;
 	}
 	
 	
